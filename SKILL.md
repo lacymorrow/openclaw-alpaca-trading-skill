@@ -8,6 +8,7 @@ metadata:
       bins: ["apcacli"]
       env: ["APCA_API_KEY_ID", "APCA_API_SECRET_KEY"]
     homepage: "https://github.com/d-e-s-o/apcacli"
+    repository: "https://github.com/lacymorrow/openclaw-alpaca-trading-skill"
 ---
 
 # Alpaca Trading Skill
