@@ -2,18 +2,55 @@
 name: alpaca-trading
 description: Execute trades, analyze markets, and manage portfolios using apcacli command-line tool for Alpaca's Trading API. Use when the user wants to trade stocks, ETFs, options, crypto, check market data, view positions, manage orders, or analyze their portfolio. Also use when they mention "buy," "sell," "trade," "market data," "stock price," "portfolio," "account balance," or "alpaca trading."
 metadata:
-  clawdbot:
+  openclaw:
     emoji: "📈"
     requires:
       bins: ["apcacli"]
       env: ["APCA_API_KEY_ID", "APCA_API_SECRET_KEY"]
     homepage: "https://github.com/d-e-s-o/apcacli"
     repository: "https://github.com/lacymorrow/openclaw-alpaca-trading-skill"
+    install:
+      - id: "brew-rustup"
+        kind: "brew"
+        formula: "rustup"
+        bins: ["rustup"]
+        label: "Install Rust toolchain (Homebrew)"
 ---
 
 # Alpaca Trading Skill
 
 Execute trades and manage portfolios through the `apcacli` command-line tool for Alpaca's Trading API.
+
+## Installation
+
+`apcacli` is a Rust CLI. Install it cross-platform:
+
+### macOS (Homebrew)
+```bash
+brew install rustup
+rustup-init -y
+source "$HOME/.cargo/env"
+cargo install apcacli
+```
+
+### Linux
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+source "$HOME/.cargo/env"
+cargo install apcacli
+```
+
+### Windows
+1. Download and run [rustup-init.exe](https://rustup.rs)
+2. Open a new terminal, then: `cargo install apcacli`
+
+### Environment Variables
+```bash
+export APCA_API_KEY_ID='your-key-id'
+export APCA_API_SECRET_KEY='your-secret-key'
+# For live trading (default is paper):
+# export APCA_API_BASE_URL='https://api.alpaca.markets'
+```
 
 ## Overview
 
