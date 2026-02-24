@@ -4,7 +4,7 @@
 
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Rust 1.71+](https://img.shields.io/badge/rust-1.71%2B-orange.svg)](https://www.rust-lang.org)
-[![ClawdHub](https://img.shields.io/badge/ClawdHub-Skill-green.svg)](https://clawhub.ai)
+[![ClawHub](https://img.shields.io/badge/ClawHub-Skill-green.svg)](https://clawhub.com)
 
 ---
 
@@ -26,14 +26,29 @@ Unlike GUI-based trading platforms, `apcacli` gives you programmatic access to y
 
 ### Step 1: Install apcacli
 
+`apcacli` is a Rust CLI — you'll need the Rust toolchain first.
+
+**macOS (Homebrew):**
 ```bash
-# Install Rust (if needed - skip if already installed)
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-# Install apcacli
+brew install rustup
+rustup-init -y
+source "$HOME/.cargo/env"
 cargo install apcacli
+```
 
-# Verify it works
+**Linux:**
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+source "$HOME/.cargo/env"
+cargo install apcacli
+```
+
+**Windows:**
+1. Download and run [rustup-init.exe](https://rustup.rs)
+2. Open a new terminal, then run: `cargo install apcacli`
+
+**Verify it works:**
+```bash
 apcacli --help
 ```
 
@@ -246,15 +261,18 @@ chmod +x ~/check-portfolio.sh
 
 ---
 
-## Installation for ClawdHub
-
-Once published on ClawdHub, users can install this skill with:
+## Installation via ClawHub
 
 ```bash
 # Install the skill
 clawhub install alpaca-trading
 
-# Install the underlying tool
+# Install Rust (if not already installed)
+# macOS: brew install rustup && rustup-init -y
+# Linux: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+# Install the CLI tool
+source "$HOME/.cargo/env"
 cargo install apcacli
 
 # Set up API keys
@@ -262,10 +280,10 @@ export APCA_API_KEY_ID='your_key'
 export APCA_API_SECRET_KEY='your_secret'
 ```
 
-**Manual installation:**
+**From source (GitHub):**
 ```bash
-# Clone or copy to your skills directory
-cp -r alpaca-trading ~/.clawdbot/skills/
+git clone https://github.com/lacymorrow/openclaw-alpaca-trading-skill.git
+cp -r openclaw-alpaca-trading-skill ~/.agents/skills/alpaca-trading
 ```
 
 ---
@@ -336,13 +354,15 @@ export APCA_API_SECRET_KEY='LIVE_SECRET'
 
 **Skill Type:** CLI Tool Integration
 **Tool:** apcacli (Rust-based Alpaca CLI)
-**Created for:** ClawdHub / Claude Code
+**Created for:** [ClawHub](https://clawhub.com) / [OpenClaw](https://openclaw.ai)
 **License:** GPL-3.0 (following apcacli's license)
 
 **Credits:**
 - `apcacli` created by [d-e-s-o](https://github.com/d-e-s-o)
 - Built on the `apca` Rust crate for Alpaca API interactions
-- Skill documentation by the ClawdHub community
+- Skill documentation by the OpenClaw community
+- **Source:** https://github.com/lacymorrow/openclaw-alpaca-trading-skill
+- **ClawHub:** https://clawhub.com
 
 ---
 
